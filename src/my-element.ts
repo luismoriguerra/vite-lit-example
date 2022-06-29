@@ -1,8 +1,10 @@
-import { html, css, LitElement } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
+import { html, css, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
+// import "./my-button.js";
+import("./my-button.js");
 
-@customElement('my-element')
+@customElement("my-element")
 export class MyElement extends LitElement {
   static styles = css`
     :host {
@@ -11,49 +13,53 @@ export class MyElement extends LitElement {
       padding: 16px;
       max-width: 800px;
     }
-  `
+  `;
 
   @property()
-  name = 'World'
-  
+  name = "World";
+
   @property()
-  value = ''
+  value = "";
 
   @property({ type: Number })
-  count = 0
+  count = 0;
 
   render() {
     return html`
       <h1>Hello, ${this.name}!</h1>
       <input type="text" .value=${this.value} @input=${this.updateValue} />
-      <button @click=${this.displayAlert}>Click me and alert wiht ${this.value}</button>
+      <button @click=${this.displayAlert}>
+        Click me and alert wiht ${this.value}
+      </button>
       <hr />
       <button @click=${this._onClick} part="button">
         Click Count: ${this.count}
       </button>
       <slot></slot>
-    `
+      <hr />
+      <my-button></my-button>
+    `;
   }
 
   displayAlert() {
-    alert(this.value || 'no data')
+    alert(this.value || "no data");
   }
 
   updateValue(e: Event) {
-    this.value = (e.target as HTMLInputElement).value
+    this.value = (e.target as HTMLInputElement).value;
   }
 
   private _onClick() {
-    this.count++
+    this.count++;
   }
 
   foo(): string {
-    return 'foo'
+    return "foo";
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'my-element': MyElement
+    "my-element": MyElement;
   }
 }
