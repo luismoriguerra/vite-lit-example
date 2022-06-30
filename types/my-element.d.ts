@@ -1,4 +1,5 @@
 import { LitElement } from "lit";
+import "./my-button.js";
 export declare class MyElement extends LitElement {
     static styles: import("lit").CSSResult;
     name: string;

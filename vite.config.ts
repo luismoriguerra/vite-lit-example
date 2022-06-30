@@ -9,6 +9,7 @@ export default defineConfig({
       formats: ['es']
     },
     rollupOptions: {
+      // commented to create WC without dependecies
       // external: /^lit/
     }
   }

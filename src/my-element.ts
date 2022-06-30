@@ -1,8 +1,7 @@
 import { html, css, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-// import "./my-button.js";
-import("./my-button.js");
+import "./my-button.js";
 
 @customElement("my-element")
 export class MyElement extends LitElement {
